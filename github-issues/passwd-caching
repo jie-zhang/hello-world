@@ -1,0 +1,21 @@
+----------------------
+password caching
+----------------------
+
+The last option we need to set will tell git that you don't want to type your username and password every time you talk to a remote server.
+
+Tip: You need git 1.7.10 or newer to use the credential helper
+
+To use this option, you need to turn on the credential helper so that git will save your password in memory for some time:
+
+git config --global credential.helper cache
+# Set git to use the credential memory cache
+
+By default git will cache your password for 15 minutes. You can change this if you like.
+
+git config --global credential.helper 'cache --timeout=3600'
+# Set the cache to timeout after 1 hour (setting is in seconds)
+
+Tip: The credential helper only works when you clone an HTTPS repository URL. If you use the SSH repository URL instead, SSH keys are used for authentication. This guide offers help generating and using an SSH key pair.
+rl = https://github.com/jie-zhang/hello-world.git
+
