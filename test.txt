@@ -107,5 +107,29 @@ it.
 	no changes added to commit (use "git add" and/or "git commit -a")
 
   --@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+		[jie-z@JIE-TOSHIBA hello-world]$ git rebase --continue
+		Applying: verify the "rebase" merge method.
+		[jie-z@JIE-TOSHIBA hello-world]$ git status
+		# On branch hello-git
+		nothing to commit (working directory clean)
+		[jie-z@JIE-TOSHIBA hello-world]$ git checkout master
+		Switched to branch 'master'
+		[jie-z@JIE-TOSHIBA hello-world]$ git rebase master
+		Current branch master is up to date.
+		[jie-z@JIE-TOSHIBA hello-world]$ git checkout master
+		Already on 'master'
+		[jie-z@JIE-TOSHIBA hello-world]$ git branch 
+		  hello-git
+		* master
+		  show
+		[jie-z@JIE-TOSHIBA hello-world]$ git branch --no-merged
+		  hello-git
+		[jie-z@JIE-TOSHIBA hello-world]$ git merge hello-git
+		Updating 812397d..00be574
+		Fast-forward
+		 test.txt |   46
+++++++++++++++++++++++++++++++++++++++++++++++
+		 1 files changed, 46 insertions(+), 0 deletions(-)
+
 -----------------------------------------------------------------
 
