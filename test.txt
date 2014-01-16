@@ -1,2 +1,11 @@
 1.test for if I can connect to the github now.
 2.test for if I can connect to the github now.
+3.do works as below:
+-----------------------------------------------------------------
+  --fork by another user;
+  --clone the original github repository:git@github.com:jie-zhang/hello-world.git(when I do this, it generate a remote branch "origin/master" and a local branch "master" automatically for me);
+  --remote add another remote branch named "fork" from git@github.com:javatar/hello-world.git;
+  --"checkout -b" to generate a new local branch named "hello-git"(change to the new branch
+automatically). 
+  --fetch from frok;
+-----------------------------------------------------------------
