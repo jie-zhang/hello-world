@@ -9,3 +9,11 @@
 automatically). 
   --fetch from frok;
 -----------------------------------------------------------------
+
+4. do works as below:
+-----------------------------------------------------------------
+  --edit a file in branch "hello-git" and stage it and then commit;
+  --checkout master to change to the master branch;
+  --check the merge status and no-merged status;
+  --change back to the hello-git branch and push to the remote repository. 
+-----------------------------------------------------------------
