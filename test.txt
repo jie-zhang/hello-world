@@ -62,4 +62,50 @@ hello-git:master
   --@@@@@@@@@@@@@@@
     when I check from the githum website, the main branch "jie-zhang" has
 updated to the newest status with all the modification "javatar" have made.
+
+7. so this time I want to test the "rebase" method.
 -----------------------------------------------------------------
+  --I have modified a file on the "master" branch and push it to remote server
+"origin".
+  --And now I have modified the same file, without fetch the newest file from
+master.
+  --Then I will commit it and push to the remote branch "fork", and do the
+"rebase" in the branch "local-git".
+  --Of Course I will meet a confiction, and it will be no problem to resolve
+it.
+  --@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  -- and it is the result:
+	[jie-z@JIE-TOSHIBA hello-world]$ git checkout master
+	Switched to branch 'master'
+	[jie-z@JIE-TOSHIBA hello-world]$ git fetch
+	[jie-z@JIE-TOSHIBA hello-world]$ git checkout hello-git
+	Switched to branch 'hello-git'
+	[jie-z@JIE-TOSHIBA hello-world]$ git rebase master
+	First, rewinding head to replay your work on top of it...
+	Applying: verify the "rebase" merge method.
+	Using index info to reconstruct a base tree...
+	Falling back to patching base and 3-way merge...
+	Auto-merging test.txt
+	CONFLICT (content): Merge conflict in test.txt
+	Failed to merge in the changes.
+	Patch failed at 0001 verify the "rebase" merge method.
+
+	When you have resolved this problem run "git rebase --continue".
+	If you would prefer to skip this patch, instead run "git rebase
+--skip".
+	To restore the original branch and stop rebasing run "git rebase
+--abort".
+
+	[jie-z@JIE-TOSHIBA hello-world]$ git status
+	# Not currently on any branch.
+	# Unmerged paths:
+	#   (use "git reset HEAD <file>..." to unstage)
+	#   (use "git add/rm <file>..." as appropriate to mark resolution)
+	#
+	#	both modified:      test.txt
+	#
+	no changes added to commit (use "git add" and/or "git commit -a")
+
+  --@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-----------------------------------------------------------------
+
