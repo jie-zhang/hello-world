@@ -3,3 +3,19 @@ git remote add origin git@github.com:jie-zhang/hello-world.git
 
 或者，直接修改.git/config文件也可以
 
+--------------------------------------------------------
+It is the result below: 
+--------------------------------------------------------
+[root@JIE-TOSHIBA hello-world]# git push origin master
+The authenticity of host 'github.com (192.30.252.128)' can't be established.
+RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:5..............
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.252.128' (RSA) to the list of known hosts.
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 661 bytes, done.
+Total 4 (delta 0), reused 0 (delta 0)
+To git@github.com:jie-zhang/hello-world.git
+   540ddca..b23ce3d  master -> master
+
