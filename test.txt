@@ -28,3 +28,15 @@ changes to the remote repository:git@github.com:javatar/hello-world.git.
   --and I will send a pull request to the "jie-zhang" server where I forked
 the "hello-world" pj from (git@github.com:jie-zhang/hello-world.git.).
 -----------------------------------------------------------------
+
+6. so this time I want to test the "rebase" method.
+-----------------------------------------------------------------
+  --I have modified a file on the "master" branch and push it to remote server
+"origin".
+  --And now I have modified the same file, without fetch the newest file from
+master.
+  --Then I will commit it and push to the remote branch "fork", and do the
+"rebase" in the branch "local-git".
+  --Of Course I will meet a confiction, and it will be no problem to resolve
+it.
+-----------------------------------------------------------------
