@@ -17,3 +17,14 @@ automatically).
   --check the merge status and no-merged status;
   --change back to the hello-git branch and push to the remote repository. 
 -----------------------------------------------------------------
+
+5. do works as below:
+-----------------------------------------------------------------
+  --when I push the "hello-git" branch changes to the remote server "fork",
+First time I use just "git push" for considering that the "hello-git" is
+tracked branch of "fork", but it seems that <<<<it doesn't works>>>>.
+  --then I tried "git push fork hello-git:master", it successed to push my
+changes to the remote repository:git@github.com:javatar/hello-world.git.
+  --and I will send a pull request to the "jie-zhang" server where I forked
+the "hello-world" pj from (git@github.com:jie-zhang/hello-world.git.).
+-----------------------------------------------------------------
