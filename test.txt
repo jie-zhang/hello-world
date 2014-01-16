@@ -28,3 +28,38 @@ changes to the remote repository:git@github.com:javatar/hello-world.git.
   --and I will send a pull request to the "jie-zhang" server where I forked
 the "hello-world" pj from (git@github.com:jie-zhang/hello-world.git.).
 -----------------------------------------------------------------
+
+6. do works as below:
+-----------------------------------------------------------------
+  --git checkout master
+  --git branch --no-merged
+      :hello-git
+  --git merge hello-git
+      Updating b92c169..d9ba622
+      Fast-forward@@@@@@@@@@@@@@@@@@@@@@
+       test.txt |   28 ++++++++++++++++++++++++++++
+       1 files changed, 28 insertions(+), 0 deletions(-)
+  --git log
+      commit d9ba622e9e2acb10cffeda24640e81741fdb061a
+      Author: javatar <neilsky@126.com>
+      Date:   Thu Jan 16 19:34:20 2014 +0800
+
+          In the branch "hello-git", I use the command "git push fork
+hello-git:master
+  --git status
+      # On branch master
+      # Your branch is ahead of 'origin/master' by 3 commits.@@@@@@@@@@@
+      #
+      nothing to commit (working directory clean)
+  --git push
+      Counting objects: 11, done.
+      Delta compression using up to 4 threads.
+      Compressing objects: 100% (9/9), done.
+      Writing objects: 100% (9/9), 1.41 KiB, done.
+      Total 9 (delta 5), reused 0 (delta 0)
+      To git@github.com:jie-zhang/hello-world.git
+         b92c169..d9ba622  master -> master
+  --@@@@@@@@@@@@@@@
+    when I check from the githum website, the main branch "jie-zhang" has
+updated to the newest status with all the modification "javatar" have made.
+-----------------------------------------------------------------
