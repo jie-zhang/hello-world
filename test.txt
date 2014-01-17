@@ -133,3 +133,15 @@ it.
 
 -----------------------------------------------------------------
 
+8. I met a problem when I tried to push the branch "fork".
+-----------------------------------------------------------------
+	[jie-z@JIE-TOSHIBA hello-world]$ git push fork hello-git:master
+	To git@github.com:javatar/hello-world.git
+	 ! [rejected]        hello-git -> master (non-fast-forward)
+	error: failed to push some refs to 'git@github.com:javatar/hello-world.git'
+	To prevent you from losing history, non-fast-forward updates were rejected
+	Merge the remote changes before pushing again.  See the 'Note about
+	fast-forwards' section of 'git push --help' for details.
+	[jie-z@JIE-TOSHIBA hello-world]$ 
+-----------------------------------------------------------------
+
