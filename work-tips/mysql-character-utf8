@@ -1,0 +1,60 @@
+--------------------
+修改mysql编码为utf8
+--------------------
+
+系统：CentOS6.2.
+
+查看mysql编码
+mysql> show variables like 'character_set_%';
+
++--------------------------+----------------------------+
+| Variable_name            | Value                      |
++--------------------------+----------------------------+
+| character_set_client     | latin1                     |
+| character_set_connection | latin1                     |
+| character_set_database   | latin1                     |
+| character_set_filesystem | binary                     |
+| character_set_results    | latin1                     |
+| character_set_server     | latin1                     |
+| character_set_system     | utf8                       |
+| character_sets_dir       | /usr/share/mysql/charsets/ |
++--------------------------+----------------------------+
+8 rows in set (0.00 sec)
+
+修改mysql编码
+必须修改配置文件/etc/my.cnf，通过set命令修改的，mysql重新启动后就会失效。
+
+    1、在[client]字段里加入default-character-set=utf8，如下：
+    [client]
+    default-character-set=utf8
+
+    2、在[mysqld]字段里加入character-set-server=utf8，如下：
+    [mysqld]
+    default-character-set=utf8
+    character-set-server=utf8
+
+    3、在[mysql]字段里加入default-character-set=utf8，如下：
+    [mysql]
+    default-character-set=utf8
+
+    4、在[mysqld_safe]字段里加入default-character-set=utf8，如下：
+    [mysqld_safe]
+    default-character-set=utf8
+
+重新启动mysql服务，登录并确认编码；
+mysql> show variables like 'character_set_%';
+
++--------------------------+----------------------------+
+| Variable_name            | Value                      |
++--------------------------+----------------------------+
+| character_set_client     | utf8                       |
+| character_set_connection | utf8                       |
+| character_set_database   | utf8                       |
+| character_set_filesystem | binary                     |
+| character_set_results    | utf8                       |
+| character_set_server     | utf8                       |
+| character_set_system     | utf8                       |
+| character_sets_dir       | /usr/share/mysql/charsets/ |
++--------------------------+----------------------------+
+8 rows in set (0.00 sec)
+
