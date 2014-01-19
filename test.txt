@@ -146,3 +146,47 @@ it.
 	[jie-z@JIE-TOSHIBA hello-world]$ 
 -----------------------------------------------------------------
 
+9. I find the reason that the errors I met last week when I tried to "PUSH" to
+the remote repository.
+----------------------------------------------------------
+  --I find that the ./.git/config file are setting wrongly.(I did that
+manually.)
+	[remote "fork"]
+		url = git@github.com:javatar/hello-world.git
+		fetch = +refs/heads/*:refs/remotes/fork/*
+	[branch "hello-git"]
+		remote = fork
+		merge = refs/heads/hello-git
+                                   ^^^^^^^^^------> which should be
+"master"!!!
+  --@@@@@@@@@@@@@-> because the remote branch is defaultly named as
+[master] not my local branch name [hello-git]!!!@@@@@@@@@
+  --#################################################
+    THE REASON IS THAT: I MADE A MISTAKE TO TRACK THE 
+        REMOTE BRANCH WITH THE LOCAL BRANCH. I DID IT
+        MANUALLY, BUT UNFORTUNATELY I MADE A MISTAKE 
+        AS ABOVE.
+  --#################################################
+	SO THE RIGHT WAY OF TRACK THE REMOTE BRANCH 
+	IS AS BELOW:
+	1. ADD A REMOTE BRANCH:
+		git remote add remote-branch-name
+git@github.com:javatar/hello-world.git
+	2. ADD A NEW LOCAL BRANCH AND TRACK THE REMOTE BRANCH:
+		git checkout -b new-local-branch-name
+remote-branch-name/master
+	  *NOTE:[master is the default name of remote branch name.]*
+	  *NOTE:[we can also use "git checkout --track
+remote-branch-name/master"], if local branch "master" is not exist.
+  --#################################################
+
+  --So, when I manully modified the config file, OR when I made a new local branch, I can use just "git push" the push to the right remote repository which my remote branch point to. I no need to type the complete command "git push local-branch-name remote-repository:remote-branch-name" to do my push.
+
+
+
+
+
+
+
+
+
