@@ -73,6 +73,7 @@ master.
 "rebase" in the branch "local-git".
   --Of Course I will meet a confiction, and it will be no problem to resolve
 it.
+<<<<<<< HEAD
   --@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   -- and it is the result:
 	[jie-z@JIE-TOSHIBA hello-world]$ git checkout master
