@@ -1,0 +1,15 @@
+# add by jie-zhang@2014/02/10
+------------------------------
+Reading the book of scala which is named as <<Programming Scala: Tackle Multi-Core Complexity on the Java Virtual Machine>>.
+(So, although we obtained a list with double the values of elements in
+------------------------------
+Reading the book of scala which is named as <<Programming Scala: Tackle Multi-Core Complexity on the Java Virtual Machine>>.
+Reading the book of scala which is named as <<Programming Scala: Tackle Multi-Core Complexity on the Java Virtual Machine>>.
+the original list, we did so without modifying any variable or object.)
+This immutable approach is a key concept that makes functional programming
+a desirable style for concurrent programming. In functional
+programming, functions are pure. The output they produce is based
+solely on the input they receive, and they are not affected by or affect
+any state, global or local.
+
+
