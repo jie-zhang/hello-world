@@ -13,3 +13,36 @@ solely on the input they receive, and they are not affected by or affect
 any state, global or local.
 
 
+#add by jie-z@2014/02/10
+Technically, Scala has no operators, but when I say “operator overloading,”
+I mean overloading symbols like +, +-, and so on. In Scala, these
+are actually method names. Operators take advantage of Scala’s lenient
+method invocation syntax—Scala does not require a dot (.) between the
+object reference and method name.
+
+......
+
+We discussed Scala’s simple and elegant support for operator overloading.
+However, the fact that Scala does not have operators is probably
+hurting your head a little. You may be wondering about operator precedence.
+Since Scala does not have operators, it can’t define precedence
+on operators, right? Fear not, because 24 - 2 + 3 * 6 is 40 in both Java
+and Scala. Scala does not define precedence on operators. It defines
+precedence on methods.
+The first character of methods is used to determine their priority.7 If
+two characters with same priority appear in an expression, then the
+operator on the left takes higher priority. Here is the priority of the first
+letter listed from low to high:8
+all letters
+|
+^
+&
+< >
+= !
+:
++ -
+* / %
+all other special characters
+
+
+
