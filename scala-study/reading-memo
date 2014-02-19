@@ -45,4 +45,22 @@ all letters
 all other special characters
 
 
+# add by jie-zhang@2014/02/14
+# -----------------------------
+# Play framework
+# -----------------------------
+# Your first Play application
+http://www.playframework.com/documentation/2.2.x/ScalaTodoList
 
+# PLAY2.0框架快速入门
+http://blog.csdn.net/lqclh502/article/details/8182217
+
+# add by jie-zhang@2014/02/15
+# Reading the text of Play framework.
+# http://www.playframework.com/documentation/2.2.x/ScalaAnorm
+
+Anorm, simple SQL data access
+
+Play includes a simple data access layer called Anorm that uses plain SQL to interact with the database and provides an API to parse and transform the resulting datasets.
+
+Anorm is Not an Object Relational Mapper.
