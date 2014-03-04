@@ -1,0 +1,22 @@
+---------------------------------
+1. git怎么查看某个版本的某文件？ 
+---------------------------------
+git show REV:FILE
+e.g.
+git show 'HEAD@{2 days ago}:vars_init.py' 
+
+例如，使用流程：
+git log file
+git checkout REV file
+vi file
+
+.....
+
+git checkout master file 
+
+
+git blame filename.c ? 
+
+----------------------------------
+2. 
+----------------------------------
