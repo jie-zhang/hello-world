@@ -28,3 +28,29 @@ jie-zhang总结困扰过个人的操作极巧。
     (1)全局格式化gg=G
     (2)v或者ctrl+v进入块编辑模式，选中要编辑的块, <键左缩进或者>右缩进。
        然后，如果要重复操作，按.键重复。u撤销一步，ctrl+r重做一步。
+
+5. vim的多窗口
+
+    :tabnew [++opt选项] ［＋cmd］ 文件            建立对指定文件新的tab
+    :tabc     关闭当前的tab        :或者q
+    :tabo     关闭所有其他的tab    :tabonly
+    :tabs     查看所有打开的tab    :★
+    :tabp     前一个               :tabprevious
+    :tabn     下一个               :tabnext
+    :tabfir   第一个tab
+    :tabl     最后一个tab
+    :tabn (n) 切换到第n个tab       :★
+    (n)gt     切换到第n个tab       :★
+    :tabd (cmd) 对所有tab执行命名，例如保存所有tab:  :tabd w
+
+    标准模式下：
+    gt , gT 可以直接在tab之间切换。
+
+    ---- 以下未验证
+    更改窗口宽度的命令是: Crtl+w > 将当前窗口向右边扩展一行，将 > 换成 < 就是向左边扩展一行。也可以在之前使用数字代表扩展的行数， 5 Ctrl+w > ,向右边扩展5行。
+
+    更改窗口高度类似，只是命令是Ctrl+w + ，增加高度，- 减小高度。
+    参考:
+    http://hi.baidu.com/dt_zhangwei/item/c4804715b684cff965eabfa5
+    http://xiaozh.net/3/55.htm
+    vim折叠的用法: http://xiaozh.net/3/54.htm
