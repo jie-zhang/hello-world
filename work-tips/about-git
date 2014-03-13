@@ -23,5 +23,116 @@ git操作查漏补缺
     Fork A Repo
     https://help.github.com/articles/fork-a-repo
 
-3. 
+3. 工作实例流程: fork主库, 个人修改，再取主库合并好后上传至个人库，再向主库做pull request.
+
+    -------------------
+
+    Updated by 張 傑 about 24 hours ago
+    Comment Edit
+
+    请大家采用如下步骤：
+
+        1. 登录github，从下记工程处fork工程私有库：
+        https://github.com/rontech/customer-portal
+        #  拷贝至本地库
+        #  git clone git@github.com:github-account/customer-portal.git
+        #  创建201403分支
+        #  git checkout -b 201403 origin/release-201403
+        2. 拷贝release-201403分支至本地库
+        git clone -b release-201403 git@github.com: github-account /customer-portal.git
+        3. 修改代码在201403库中进行，完成后push至自己的github release-201403分支。
+        4. 向rontech release-201403分支 发送pull request即可。
+        
+    -------------------
+
+    Updated by 張 傑 about 12 hours ago
+    Comment Edit
+
+    張 傑 は書きました:
+
+        4. 修改代码在201403库中进行，完成后push至自己的github release-201403分支。
+        5. 向rontech release-201403分支 发送pull request即可。
+
+    在上记4 和 5 之间，最好能增加一步，即从rontech上下载最新代码在本地merge之后再做pull request。
+    步骤参考如下：
+
+    1. 增加rontech远程库
+
+        git remote add rontech git@github.com:rontech/customer-portal.git
+
+        查看远程库信息
+        git remote show rontech
+
+    2. 将rontech远程库的内容fetch一下(以将远程内容下载到本地：重要)
+
+        git fetch rontech
+
+        # 使用fetch的好处
+        # Pulls in changes not present in your local repository, without modifying your files.
+
+    3. 建立本地库跟踪远程库rontech.
+
+        git checkout -b rontech-release-201403 rontech/release-201403
+        或者：
+        git checkout -b --track rontech/release-201403
+        两个命令的区别是，第一个可以通过指定本地库的名字来定义和远程分支不一样的本地库名字
+
+    4. 切换到 自己github下的库 (这里假设名为 201403)，查看是否需要合并。
+
+        git checkout 201403
+
+        查看是否需要合并
+        git branch --no-merged
+
+        如果需要合并，rontech-release-201403 的名字会显示出来。
+
+    5. 根据需要，执行合并
+
+        git merge rontech-release-201403
+
+        如果有冲突文件，解决冲突。
+
+    6. 合并完成后，在本地试运行，没有错误，即可上传至自己的github库。
+
+        (略去冲突解决文件，之后修改文件的git add , git rm , git commit 动作说明。)
+        推送自己github库
+        git push origin 201403:release-201403
+
+    7. 通过github网页确认自己的代码已正确上传（查看log或修改的文件）。
+
+        点击pull request，向rontech库的release-201403分支pull request 自己的release-201403分支即可。
+
+    ---------------
+    Updated by 張 程 about 11 hours ago
+    Comment Edit
+
+    能不能步骤再简单点，本地不进行真正merge，只是做简单试验，
+
+    比如
+    1 checkout私有仓库
+    2 修改后push私有仓库
+    3 追加rontech仓库链接
+    4 merge试验：git pull rontech release-201403
+    5 4的操作没有冲突，做pull req
+    6 4的操作有冲突，git merge --abort (或者git reset --hard HEAD)复位后，做手动冲突消除并push私有仓库&pull req
+
+
+4. git push后修改commit
+   在未push远程库时可以简单使用命令来修改提交信息或是文件。
+   git commit --amend -m "..."
+
+   （git rebase命令可以修改不限次数的提交，不过慎用！）
+
+   但是在 git commit&push后发现commit有拼写错误，于是想改一下。
+   此时再push时会报错。如果需要强制push可以采用
+   git push -f 
+
+   强制推送即可，但前提是你这个commit没有其他人pull，否则可能会......
+
+
+5. git修改远程库地址
+    git remote set-url 远程仓库名 <URL>
+   参考: git help remote.
+
+
 

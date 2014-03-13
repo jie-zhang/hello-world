@@ -54,3 +54,21 @@ jie-zhang总结困扰过个人的操作极巧。
     http://hi.baidu.com/dt_zhangwei/item/c4804715b684cff965eabfa5
     http://xiaozh.net/3/55.htm
     vim折叠的用法: http://xiaozh.net/3/54.htm
+
+6. vim 查看文件编码，设置编码
+    查看编码
+        file 文件1, 文件2.....
+        例如，查看文件夹里所有文件编码: file *
+    设置编码
+        
+    设置编码(encoding: Vim 内部使用的字符编码方式，包括 Vim 的 buffer (缓冲区)、菜单文本、消息文本等。默认是根据你的locale选择.用户手册上建议只在 .vimrc 中改变它的值)
+    set enc=utf-8 
+
+    设置文件编码(fileencoding: Vim 中当前编辑的文件的字符编码方式，Vim 保存文件时也会将文件保存为这种字符编码方式 (不管是否新文件都如此)。 )
+    set fenc=utf-8
+
+    设置文件编码family(fileencodings: Vim自动探测fileencoding的顺序列表， 启动时会按照它所列出的字符编码方式逐一探测即将打开的文件的字符编码方式，并且将 fileencoding 设置为最终探测到的字符编码方式。因此最好将Unicode 编码方式放到这个列表的最前面，将拉丁语系编码方式 latin1 放到最后面。 )
+    set fencs=utf-8,db2312.....
+
+    参考:
+    http://blog.163.com/sea_haitao/blog/static/7756216200942552859673/
