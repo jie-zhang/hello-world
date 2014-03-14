@@ -1,0 +1,15 @@
+# ignore all dot files;
+.*
+
+# except for .gitignore file;
+!.gitignore
+
+# ignore all html temp files;
+*~
+*.bak
+
+# ignore all vim temp files;
+*.swp
+
+# individual work plan not to commit.
+doc/plan

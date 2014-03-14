@@ -1,0 +1,34 @@
+1. 开发环境中文乱码问题：
+
+    OFBiz开发时遇到乱码的问题，MySQL数据库插入中文数据时出现了一个问题，报告中文错误：incorrect string value ．．．．．
+
+    (1). 这时由于字符编码不一致导致的，应该将数据库对应的表或coloum改成uft-8，所以如果在CustomerExtra这表中存储中文的话，需要将
+      此表另外还有operationlog表的charset改成utf-8
+
+    (2). Servlet中字符显示为证券的中文，而且表也设置为utf-8，但是数据库和页面还是乱码，怎么回事？
+      这里需要修改jdbc url的参数，如将jdbc:mysql://localhost/ccbportal?zeroDateTimeBehavior=convertToNull
+      改成：jdbc:mysql://localhost/ccbportal?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=UTF-8
+
+    (3). 前台输入的是中文，到后台就变成了乱码，怎么回事？
+      无论何种表单提交都可以在后台的java文件中通过String des = new String(s.getBytes("iso8859-1"),"UTF-8");
+      来转换成你想要的UTF－8编码方式。但如果每处都加词句太麻烦，故分post和get两种方式区分提交。
+      写一个Filter即可解决问题：
+
+    (other). 上述情况全部不是的情况
+    中文开发环境，OFBIZ中ftl模板默认编码是GBK。如果需要使用其他编码，如UTF-8，则需要在启动OFBIZ时指定，否则，就会出现中文乱码。进入到 startofbiz.bat（ofbiz/tools/startofbiz.bat ） 找到
+    echo on
+"%JAVA_HOME%\bin\java" -Xms128M -Xmx512M -XX:MaxPermSize=512m -jar ofb
+更改为
+echo on
+"%JAVA_HOME%\bin\java" -Xms128M -Xmx512M -XX:MaxPermSize=512m -Dfile.encoding=UTF-8 -jar ofbiz.jar
+
+参考：
+    OFBiz的中文乱码解决方案
+    http://www.blogjava.net/persister/archive/2009/08/10/290568.html
+
+    UTF-8 字符处理在 Web 开发中的应用
+    http://www.ibm.com/developerworks/cn/web/wa-lo-utf8/
+
+
+
+2.  
