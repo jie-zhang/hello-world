@@ -135,4 +135,39 @@ git操作查漏补缺
    参考: git help remote.
 
 
+4. git批量删除
+   将修改或者增加文件批量增加到stage中，我们可以使用git add .
+   删除时，则需要采用利用linux 的grep 小技巧：
+   git status | grep deleted > dellist
+   
+   使用vim编辑dellist，在ctrl + v 列模式下删除不要的块，留下删除文件列表。
+   然后采用
+   cat dellist | xargs git rm
+   即可将删除的文件全部放入stage中。
+
+   事实上，如果对git基本命令熟悉，可以简单的通过备选参数做到：
+   add 所有文件: git add .
+   add 所有修改或者增加的并删除所有删除的: git add -A
+   commit 所有修改的和删除的（不包括新加入的文件）git commit -a
+
+   参考:http://ssd910.blog.163.com/blog/static/23876797201371623456174/  
+
+5. 重建本地分支(比如master)
+   git branch -m master old_master
+   git checkout -b master origin/master
+   git branch -d old_master
+
+
+6. 使用--track选项定义
+
+   git branch new_branch --track origin/master
+   或者
+   git checkout -b new_branch --track origin/master
+
+       ----------------git help branch--------------------
+       When a local branch is started off a remote branch, git sets up the
+       branch so that git pull will appropriately merge from the remote
+       branch. This behavior may be changed via the global
+       branch.autosetupmerge configuration flag. That setting can be
+       overridden by using the --track and --no-track options.
 
