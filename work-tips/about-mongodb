@@ -1,0 +1,50 @@
+1.MongoDB Schema Design 数据库设计
+    http://xiayuanfeng.iteye.com/blog/998193
+
+2. Mongodb中ObjectId的设计:
+    对于ObjectId的组成，有一些值得说道的地方：
+    1) 因为ObjectId以时间戳打头，所以它是近似有序的，使得_id的索引插入效率相比普通索引高很多。
+    2) ObjectId的前9个字节（timestamp+machine+pid）可以保证不同进程生成的ObjectId不会重复，而后3个字节increment又可以保证同一进程内生成的ObjectId不会重复，所以无需怀疑ObjectId的全局唯一性。
+    3) ObjectId存储是12个字节，但如果应用有需要以可读的方式表现它，就需要将它转成字符串，这需要24字节（每字节转成2字节的16进制表示），这个长度的字符串看起来就有些不让人舒服了，如果是追踪某个_id引发的bug，就需要配上copy+paste的杀招。
+    4) 初涉ObjectId的朋友很容易犯的两个错误：1）是查询时直接使用类似db.collection.find({_id:”xx”})式的代码，结果怎么也查不到明明存在的文档，而正确的写法应该是：db.collection.find({_id:new ObjectId(“xx”)})。2）是集合间有外键关联时，也需要将外键置为ObjectId类型，而不要直接使用上24字节的string。在写与mongodb打交道的CRUD代码时，需要多留意ObjectId和string的转换代码。
+    5) ObjectId的产生既可以在应用程序端也可以在mongodb端，各种语言的driver都提供了程序端生成ObjectId的方法，不过大多数人徒省事直接交给mongodb做了。但从mongodb的设计哲学来说，ObjectId更应该由客户端生成，毕竟应用层比存储层更容易扩展，并会提高mongodb的插入速度。
+
+    参考：
+    理解mongodb的ObjectId
+    http://blog.sina.com.cn/s/blog_a584f32c0101703z.html
+    
+   
+3. MongoDB之数据建模
+    1) Embed/Manual References/DBRefs
+    http://database.51cto.com/art/201207/350193.htm
+
+    2) MongoDB数据库关系表示和设计：（1）嵌套文档和引用链接
+    http://huangz.iteye.com/blog/1196185
+
+    3) Data Model Examples and Patterns
+    http://docs.mongodb.org/manual/applications/data-models/
+    -->
+        Model One-to-One Relationships with Embedded Documents
+        Model One-to-Many Relationships with Embedded Documents
+        Model One-to-Many Relationships with Document References
+   
+    4)MongoDB资料汇总专题
+    http://blog.nosqlfan.com/html/3548.html
+
+
+
+4. Mongodb的故障转移和数据恢复
+    数据不一致的问题，如果有也可能是你使用不当导致的，也和mongodb的机制有一定的关系，因为mongodb的数据都是事先存在在内存中的，如果突然断电或者服务器故障是有可能导致数据丢失的，为了防止因为服务或者应用程序出现问题而丢失数据，mongodb提供了两种方式ReplicaSet和master/slave 可以用来做故障转移和数据备份恢复 
+    MongoDB表关联问题
+    http://bbs.csdn.net/topics/390379628?page=1
+
+5. MongoDB权限管理之用户名和密码的操作
+    http://database.51cto.com/art/201107/278042.htm
+
+
+6. 学习MongoDB--（4-2）：MongoDB查询(数组、内嵌文档和$where) 
+    http://blog.csdn.net/drifterj/article/details/7833883
+
+
+
+

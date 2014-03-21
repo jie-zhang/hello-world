@@ -171,3 +171,19 @@ git操作查漏补缺
        branch.autosetupmerge configuration flag. That setting can be
        overridden by using the --track and --no-track options.
 
+
+7. git rm --cached
+    你仅仅是想取消对一个文件的追踪，并不想删除这个文件。
+    如下命令可以完成你这个要求
+    git rm --cached <filename>
+
+    值得一提，rm命令也会删除文件，当你提交之后重建相同文件名的文件时，这个文件同样会已未追踪的形式出现，类似git rm 
+
+8. git checkout commit_id(历史版本号) -- path_to_file
+    直接从本地履历中checkout出这个文件就可以恢复。
+    可见，未git add . 加入缓存的文件, 取消修改的git checkout 本质上是使用已经缓存的文件替换了未缓存的工作文件而已, 这样考虑理解就一致了。
+
+
+
+
+

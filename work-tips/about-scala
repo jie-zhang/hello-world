@@ -43,8 +43,15 @@
     http://api.mongodb.org/scala/casbah/2.0/
 
 
+2. Scala, Java List, foreach, map, filter - How it works
 
+    I just started learning Scala in 2011, and it looks like programmers long before me realized the need for the Java to Scala collection conversions, and added this functionality in Scala 2.8. I haven't dug into the source code behind the scenes to see how this magic works, but I just found a nice discussion of the background at the Graham Hacking Scala website.
 
+    Graham mentions several interesting points in that article, including these notes:
+
+    If we look a bit further into the Scala API, we'll see that there's also a trait called Seq, which is a slightly better parallel to Java's List than the Iterable or Traversable traits. So what you really want to end up with when you bring your Java List into your Scala code is a Scala Seq, not a Scala List.
+
+    http://alvinalexander.com/scala/converting-java-collections-to-scala-list-map-array
 
 
 

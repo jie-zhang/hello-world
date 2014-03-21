@@ -1,0 +1,9 @@
+
+
+1. Python的设计哲学
+    The Zen of Python 里面有两句 (可以在python cli 中调用 import this 查看):
+
+    Explicit is better than implicit.
+    Simple is better than complex.
+
+
