@@ -4,7 +4,16 @@
 -------------------------------
 程序员用 vim 编辑代码的常用技巧 
 -------------------------------
-http://gmd20.blog.163.com/blog/static/16843923201212365744122/
+    http://gmd20.blog.163.com/blog/static/16843923201212365744122/
+
+    vim查找操作
+    http://www.blogjava.net/lingy/archive/2009/09/02/293576.html
+
+    vim入门,进阶与折腾
+    http://godorz.info/2012/01/vim/
+
+    vim 用法
+    http://my.oschina.net/alphajay/blog/42621
 
 -----------------------------------
 jie-zhang总结困扰过个人的操作极巧。
@@ -116,4 +125,21 @@ jie-zhang总结困扰过个人的操作极巧。
 
 11. Ubuntu下创建vim+Taglist+cscope+ctags组合编辑器 
     http://blog.csdn.net/longerzone/article/details/7789581
+
+12. vim中的记录功能
+    高级一些的编辑器，都会包含宏功能，vim当然不能缺少了，在vim中使用宏是非常方便的：
+    qx     开始记录宏，并将结果存入寄存器x
+    q     退出记录模式
+    @x     播放记录在x寄存器中的宏命令
+    稍微解释一下，当在normal模式下输入:qx后，你对文本的所有编辑动作将会被记录下来，再次输入q即退出了记录模
+    式，然后输入@x对刚才记录下来的命令进行重复，此命令后可跟数字，表示要重复多少次，比如@x20，可以重复20次。这个在文本的批处理中是非常有用的。
+    同时编辑多个文件 
+
+    一些vim命令记录 
+    http://blog.csdn.net/kidxueying/article/details/6854962
+
+13. 设置显示换行不换行
+    :set wrap
+    :set nowrap
+
 

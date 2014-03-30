@@ -1,4 +1,14 @@
 1. 有用的链接：
+
+    有趣的 Scala 语言: 函数成了一等公民
+    http://www.ibm.com/developerworks/cn/java/j-lo-funinscala3/index.html
+
+
+
+
+
+
+
     Play 2.0 用户指南
     http://my.oschina.net/dongming/blog?catalog=153394
 
@@ -54,4 +64,22 @@
     http://alvinalexander.com/scala/converting-java-collections-to-scala-list-map-array
 
 
+3. 
+    play secure模块 验证和授权管理
+    http://desert3.iteye.com/blog/1560967
 
+    ITeye论坛关于权限控制的讨论
+    http://www.iteye.com/magazines/82
+
+
+4. 命名参数与默认参数
+    http://eastsun.iteye.com/blog/402092 
+
+    编译器生成copy方法
+    命名参数和默认参数一个非常有用的运用是编译器自动为case类生成copy方法。这个方法采取一种轻量级的语法来创建一个原始实例的修改拷贝。copy方法具有和被拷贝的case类的基本构造方法同样类型和参数，并且每个参数都使用基本构造方法中相应值作为默认值。
+
+    case class A[T](a: T, b: Int) {  
+    // def copy[T'](a: T' = this.a, b: Int = this.b): A[T'] = new A[T'](a, b)  
+    }  
+    val a1: A[Int] = A(1, 2)  
+    val a2: A[String] = a1.copy(a = "someString")  
