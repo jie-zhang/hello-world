@@ -183,7 +183,14 @@ git操作查漏补缺
     直接从本地履历中checkout出这个文件就可以恢复。
     可见，未git add . 加入缓存的文件, 取消修改的git checkout 本质上是使用已经缓存的文件替换了未缓存的工作文件而已, 这样考虑理解就一致了。
 
+9. git reflog
+  git reset -- hard 回退到历史版本后，如果想撤销，需要知道未来版本的commit id.
+  如何知道撤销后，或者amend修改前的提交的commit id. 使用 git reflog.
 
+      The reflog is useful in various git commands, to specify the old value
+       of a reference. For example, HEAD@{2} means "where HEAD used to be two
+       moves ago", master@{one.week.ago} means "where master used to point to
+       one week ago", and so on. 
 
 
 
