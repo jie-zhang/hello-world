@@ -90,4 +90,23 @@ http://itindex.net/detail/42697-%E7%A8%8B%E5%BA%8F%E5%91%98-ted
 10 Must Watch TED Talks For All Aspiring Programmers
 https://blog.devbootcamp.com/2013/2013-02-25-10-must-watch-ted-talks-for-all-aspiring-programmers/
 
+User review from amazon.
+I have nothing but the most positive things to say about The Elements of Computing Systems. If you ever wanted to know how a computer worked -- I mean REALLY know -- read Charles Petzold's book CODE. If you also wanted to BUILD a computer, read The Elements of Computing Systems. This book takes you from a single basic logic gate to a working computer, then proceeds to design software and even a simple operating system that runs on it. (Caveat: there are 2 things you do not create yourself: the system clock and the base module for flip-flops. There's a good reason why for each. Again, to understand these parts better, I highly recommend Petzold's CODE.) All chapters are independent and can be done in any order, but the order they have it in is best. I think the authors intend for TECS to be a textbook for a class but I'm reading it on my own and it's perfect for self study. Before you read, make sure you consult the book's website's errata because there are a few typos.
+
+I also have nothing but the highest praises for the accompanying software. The authors make freely available a small open source software suite to help develop the computer you're making. Full tutorials are online. The test suites are fully scriptable. The scripts for actually testing your work are included and there's also an appendix in the book explaining the scripting language used. The software is all written in Java and will run on Windows, Linux, or Mac.
+
+Everything is kept as simple as possible without sacrificing any understanding. A perfect learning tool.
+
+
+
+---------------
+2015/01/02
+---------------
+From <<The Elements of Computing Systems: Building a Modern Computer from First Principles>>
+
+It turns out that this strategy(modulation) works well thanks to a special gift unique to humans:our ability to create and use abstractions. The notion of abstraction, central to many arts and sciences, is normally taken to be a mental expression that seeks to separate in thought, and capture in some concise manner, the essence of some entity.In computer science, we take the notion of abstraction very concretely, defining it to be a statement of "what the entity does" and ignoring the details of "how it does it".This functional description must capture all that needs to be known in order to use the entity’s services, and nothing more. All the work, cleverness, information, anddrama that went into the entity’s implementation are concealed from the client whois supposed to use it, since they are simply irrelevant. The articulation, use, and im-plementation of such abstractions are the bread and butter of our professional prac-tice: Every hardware and software developer is routinely defining abstractions (also called "interfaces") and then implementing them, or asking other people to imple-ment them. The abstractions are often built layer upon layer, resulting in higher andhigher levels of capabilities.
+
+2015/01/02 jie-zhang:
+一段话道破软件行业的根本：我们从事的所有活动，本质上，就是各个层次的抽象和实现过程。宏观来讲，可以是软件工程，微观来讲，可以是计算机语言，计算机软、硬件实现的各个层次。抽象，则成为各个 层次中衡量设计水平的指标。（接口，作为抽象的成果物，应是设计的最后一步，实现的第一步。）一名优秀的设计者，不管其使用的是哪一种语言，也不管其身处在软件工程的哪一个环节，其着眼点应是其基于抽象的设计能力。我们培养和使用的，也就是这种抽象能力。不只计算机业，其他行业，乃至处事方法，大抵如此。
+
 

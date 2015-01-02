@@ -142,4 +142,8 @@ jie-zhang总结困扰过个人的操作极巧。
     :set wrap
     :set nowrap
 
+14. 16进制编码
+    :%!xxd 16进制编辑
+    :%!xxd -r 文本编辑
+
 
