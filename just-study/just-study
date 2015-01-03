@@ -109,4 +109,8 @@ It turns out that this strategy(modulation) works well thanks to a special gift 
 2015/01/02 jie-zhang:
 一段话道破软件行业的根本：我们从事的所有活动，本质上，就是各个层次的抽象和实现过程。宏观来讲，可以是软件工程，微观来讲，可以是计算机语言，计算机软、硬件实现的各个层次。抽象，则成为各个 层次中衡量设计水平的指标。（接口，作为抽象的成果物，应是设计的最后一步，实现的第一步。）一名优秀的设计者，不管其使用的是哪一种语言，也不管其身处在软件工程的哪一个环节，其着眼点应是其基于抽象的设计能力。我们培养和使用的，也就是这种抽象能力。不只计算机业，其他行业，乃至处事方法，大抵如此。
 
-
+---------------
+2015/01/03
+---------------
+memory-mapped I/O. 
+The basic idea is to create a binary emulation of the I/O device, making it "look" to the CPU like a normal memory segment. In particular, each I/O device is allo-cated an exclusive area in memory, becoming its "memory map". In the case of an input device (keyboard, mouse, etc.), the memory map is made to continuously re-flect the physical state of the device; in the case of an output device (screen, speakers,etc.), the memory map is made to continuously drive the physical state of the device.When external events affect some input devices (e.g., pressing a key on the keyboardor moving the mouse), certain values are written in their respective memory maps.Likewise, if we want to manipulate some output devices (e.g., draw something on thescreen or play a tune), we write some values in their respective memory maps. Fromthe hardware point of view, this scheme requires each I/O device to provide an in-terface similar to that of a memory unit. From a software point of view, each I/Odevice is required to define an interaction contract, so that programs can access itcorrectly. As a side comment, given the multitude of available computer platformsand I/O devices, one can appreciate the crucial role that standards play in designingcomputer architectures.
