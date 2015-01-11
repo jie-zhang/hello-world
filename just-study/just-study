@@ -121,3 +121,51 @@ purpose computers are typically connected to multiple I/O devices like printers,
 disks, network connections, and so on. Also, typical screens are obviously much
 more powerful than the Hack screen, featuring more pixels, many brightness levels in each pixel, and colors. Still, the basic principle that each pixel is controlled by a memory-resident binary value is maintained: instead of a single bit controlling the pixel’s black or white color, several bits are devoted to control the level of brightness of each of the three primary colors that, together, produce the pixel’s ultimate color. Likewise, the memory mapping of the Hack screen is simplistic. Instead of mapping pixels directly into bits of memory, most modern computers allow the CPU to send high-level graphic instructions to a graphics card that controls the screen.  This way, the CPU is relieved from the tedium of drawing figures like circles and polygons directly—the graphics card takes care of this task using its own embedded chip-set.
 
+
+---------------
+2015/01/04
+---------------
+The introduction of symbols into assembly languages suggests that assemblers
+must be more sophisticated than dumb text processing programs. Granted, trans-
+lating agreed-upon symbols into agreed-upon binary codes is not a complicated task.
+At the same time, the mapping of user-defined variable names and symbolic labels
+on actual memory addresses is not trivial. In fact, this symbol resolution task is the first nontrivial translation challenge in our ascent up the software hierarchy from the hardware level.
+.......
+We see that the assembler is essentially a text-processing program, designed to
+provide translation services. 
+
+----<<6 Assembler >>
+
+
+---------------
+2015/01/10
+---------------
+
+※ *****
+当然我在扯淡
+http://www.yinwang.org/
+
+麻省理工学院公开课：算法导论
+http://v.163.com/special/opencourse/algorithms.html
+
+老赵点滴 - 追求编程之美 推荐内容索引
+http://blog.zhaojie.me/2009/12/valuable-posts-index.html#book-recommendation
+
+SICP
+http://mitpress.mit.edu/sicp/full-text/book/book.html
+
+Simply Scheme: Introducing Computer Science
+http://www.cs.berkeley.edu/~bh/ss-toc2.html
+
+---------------
+2015/01/11
+---------------
+Civilization progresses by extending the number of operations that we can perform without thinking about them.
+不用经过特意思考就能执行的操作，其数量的增长推动文明进步。
+----Alfred North Whitehead(1861-1947) 数学家
+    Introdution to Mathematics 1911.
+
+We shall not cease from exploration, and at the end we will arrive where we started, and know the place for the first time.
+永远不应停止探索的脚步，直到最后，再次抵达起点，我们才刚刚开始了解脚下的路。
+----T.S.Eliot(1888-1965) 诗人
+
