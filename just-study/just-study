@@ -169,3 +169,50 @@ We shall not cease from exploration, and at the end we will arrive where we star
 永远不应停止探索的脚步，直到最后，再次抵达起点，我们才刚刚开始了解脚下的路。
 ----T.S.Eliot(1888-1965) 诗人
 
+
+
+---------------
+2015/01/12
+---------------
+cheme 语言概要(上)
+http://www.ibm.com/developerworks/cn/linux/l-schm/index1.html
+
+Scheme 语言概要（下）
+http://www.ibm.com/developerworks/cn/linux/l-schm/index2.html
+
+参考：
+Simply Scheme: Introducing Computer Science
+http://www.cs.berkeley.edu/~bh/ss-toc2.html
+
+The Little Schemer
+Daniel P.Friedman
+http://book.douban.com/subject/1632977/
+
+The Scheme Programming Language
+R. Kent Dybvig
+http://www.scheme.com/tspl4/
+
+http://www.scheme.com/
+(chez (chez scheme))
+
+
+
+2015/01/18
+SICP
+第一章确实感受到了设计的优雅。
+对过程(方法)和数据一致的处理方式，无疑简化了考虑处理方式，避免了复杂性。天生具有适合递归处理的特性。
+内置方法较少，而且几乎所有的内置方法都可以方便的自己定义实现，展现出强大而灵活的扩展能力。规划好抽象的层次，可以实现复杂的功能。
+然而函数式语言(FP)本身适合数值计算，文本处理，所以会有大量数学相关的习题，难度也不算小。这本书无疑更适合大学时代的教程。
+另外，对递归的诠释部分，对从命令式变成风格(DP)开始学习程序的人有一定帮助。关于算法空间，时间复杂度的估算讲解有理有据。
+
+第二章展示的数据模型，继承了第一章的优雅与强大，但和面向对象的封装机制来比较，封装感略差(依赖于概念上的“抽象屏障”，
+而没有实际的物理隔离机制。不能把数据，操作封装在一个类似于class的结构里并能控制其可访问性，比如有理数的构造函数和其他方法部分，
+其他方法如果不能限制为对有理数的处理，就有出错的可能)。
+封装，抽象的层次更灵活(少可以实现多，少即是多，层层实现，不断抽象)，但对没有掌握这种抽象思想和方法的人来说，无疑有些无所适从。
+因而可以理解为什么在概念上更简单，明确，内置方法更多的（，牺牲了一致性的）DP设计思路更容易上手，更容易被市场接受。
+
+值得注意的是Scheme强大的语法表达力。到现在为止，依赖递归解决了所有问题，而没有使用DP中常见的各种循环结构。
+而这些结构，自己也可以轻松定义实现，这种感觉在smalltalk中也曾有过。并作为语法糖来使用。
+
+
+
