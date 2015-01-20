@@ -1,0 +1,306 @@
+;---------------
+; count-change
+;---------------
+  (define (count-change amount)
+    (cc amount 5))
+
+  (define (first-denomination kinds-of-coins)
+    (cond ((= kinds-of-coins 1) 1)
+          ((= kinds-of-coins 2) 5)
+          ((= kinds-of-coins 3) 10)
+          ((= kinds-of-coins 4) 25)
+          ((= kinds-of-coins 5) 50)))
+
+  (define (cc amount kinds-of-coins)
+    (cond ((= amount 0) 1)
+          ((= kinds-of-coins 0) 0)
+          ((< amount 0) 0)
+          (else (+
+            (cc amount
+                (- kinds-of-coins 1))
+            (cc (- amount (first-denomination kinds-of-coins))
+                kinds-of-coins)))))
+
+;---------------
+; pascal-triangle
+; 1.12 
+;---------------
+(define (pascal m n)
+    (cond ((< m 1) 'error)
+          ((or (< n 1) (> n m)) 'error)
+          ((or (= n 1) (= n m)) 1)
+          (else (+
+                  (pascal (- m 1) (- n 1))
+                  (pascal (- m 1) n)))))
+
+
+;---------------
+; expt 
+;---------------
+(define (expt b n)
+    (if (= n 0) 
+        1
+        (* b (expt b (- n 1)))))
+
+;---------------
+; fast-expt 
+;---------------
+(define (fast-expt b n)
+    (cond ((= n 0) 1)
+          ((even? n) (square (fast-expt b (/ n 2))))
+          (else (* b (fast-expt b (- n 1))))))
+
+(define (square x)
+    (* x x))
+
+
+
+;---------------
+; fast-expt 
+; 1.17
+;---------------
+ (define (* a b)
+    (if (= b 0)
+        0
+        (+ a (* a (- b 1)))))
+
+ (define (fast* a b)
+      (cond ((= b 0) 0)
+            ((even? b) (double (fast* a (/ b 2))))
+            (else (+ a (fast* a (- b 1))))))
+
+ (define (double x)
+    (+ x x))
+
+; test
+;(fast* (expt2 2 200000) (expt2 2 200000))
+; result cost 16.8s.
+;(* (expt2 2 100000) (expt2 2 100000))
+; result cost 20.4s.
+;
+
+
+;---------------
+; 
+; 1.3.1
+;---------------
+  (define (sum term a next b)
+    (if (> a b)
+        0
+        (+ (term a)
+           (sum term (next a) next b))))
+
+  (define (inc x)
+    (+ x 1))
+
+  (define (cube x)
+    (* x x x))
+
+  (define (sum-cubes a b)
+    (sum cube a inc b))
+
+;> (sum-cubes 1 10)
+;3025
+
+
+
+  (define (pi-sum a b)
+    (define (pi-term x)
+      (/ 1.0 (* x (+ x 2))))
+    (define (pi-next x)
+      (+ x 4))
+    (sum pi-term a pi-next b))
+
+;> (* 8 (pi-sum 1 10000000))
+;3.141592453589793
+
+
+
+
+;---------------
+; make-segement 
+; 2.2
+;---------------
+  (define (make-point x y)
+   (cons x y))
+
+  (define (x-point p)
+    (car p))
+
+  (define (y-point p)
+    (cdr p))
+
+  (define (print-point p)
+    (display "(")
+    (display (x-point p))
+    (display ",")
+    (display (y-point p))
+    (display ")"))
+; > (print-point one-point)
+; (3,5)
+
+  (define (make-segement x1 y1 x2 y2)
+    (cons (make-point x1 y1)
+          (make-point x2 y2)))
+
+  (define (start-segement l)
+    (car l))
+
+  (define (end-segement l)
+    (cdr l))
+
+  (define (print-segement l)
+    (display "(")
+    (print-point (start-segement l))
+    (display ",")
+    (print-point (end-segement l))
+    (display ")"))
+
+;> (define one-segement (make-segement 2 5 3 7))
+;> (print-segement one-segement)
+;((2,5),(3,7))
+
+
+
+;---------------
+; reverse 
+; 2.17
+;---------------
+  (define (append lst1 lst2)
+    (if (null? lst1)
+        lst2
+        (cons (car lst1) (append (cdr lst1) lst2))))
+
+  (define (last-pair lst)
+    (if (null? (cdr lst))
+        (car lst)
+        (last-pair (cdr lst))))
+
+
+; TODO
+; reverse
+; error
+  (define (reverse lst)
+    (if (null? lst)
+        lst
+        (cons (reverse (cdr lst)) (car lst)))))
+;> (reverse lst1)
+;((((() . 7) . 5) . 3) . 1)
+
+
+  (define (reverse lst)
+    (if (null? lst)
+        lst
+        (append (reverse (cdr lst)) (cons (car lst) '())))))
+;> (reverse lst1)
+;(7 5 3 1)
+
+
+;---------------
+; reverse 
+; 2.17
+;---------------
+  (define (square-list lst)
+    (map (lambda (x) (* x x)) lst))
+;> (square-list (list 1 2 3 4))
+;(1 4 9 16)
+
+
+
+;---------------
+; for-each 
+; 2.23
+;---------------
+; error
+  (define (for-each proc list)
+    (if (null? list)
+        nil
+        (begin
+          (proc (car list))
+          (for-each proc (cdr list)))))
+;> (for-each (lambda (x) (newline) (display x)) (list 1 2 3))
+;
+;1
+;2
+;3
+;Exception: variable nil is not bound
+;Type (debug) to enter the debugger.
+
+  (define (for-each proc list)
+    (if (not (null? list))
+        (begin
+          (proc (car list))
+          (for-each proc (cdr list)))))
+;> (for-each (lambda (x) (newline) (display x)) (list 1 2 3))
+;
+;1
+;2
+;3
+
+
+
+;---------------
+; (7)
+; 2.25
+;---------------
+
+  (define (count-leaves x)
+    (cond ((null? x) 0)
+          ((not (pair? x)) 1)
+          (else (+ (count-leaves (car x))
+                   (count-leaves (cdr x))))))
+
+;> (define y (cons (list 1 2) (list 3 4)))
+;> (length y)
+;3
+;> (count-leaves x)
+;4
+
+
+  (define x1 (list 1 3 (list 5 7) 9))
+;> x1
+;(1 3 (5 7) 9)
+  (define x2 (list (list 7)))
+;> x2
+;((7))
+  (define x3 (list 1 (list 2 (list 3 (list 4 (list 5 (list 6 7)))))))
+;> x3
+;(1 (2 (3 (4 (5 (6 7))))))
+
+;
+  (car (cdaddr x1))
+;7
+  (caar x2)
+;7
+  (cadadr (cadadr (cadadr x3)))
+;7
+
+
+;---------------
+; (7)
+; 2.25
+;---------------
+
+  (define (deep-reverse x)
+    (cond ((null? x) '())
+          ((not (pair? x)) x)
+          (else
+            (reverse (list (deep-reverse (car x))
+                           (deep-reverse (cadr x)))))))
+
+;> (define x (list (list 1 2) (list 3 4)))
+;> x
+;((1 2) (3 4))
+;> (deep-reverse x)
+;((4 3) (2 1))
+
+; others
+  (define (deep-reverse L)
+  (if (pair? L)
+  (reverse (map deep-reverse L))
+  L))
+;> (deep-reverse x)
+;((4 3) (2 1))
+
+
+
