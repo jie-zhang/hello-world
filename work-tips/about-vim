@@ -15,6 +15,10 @@
     vim 用法
     http://my.oschina.net/alphajay/blog/42621
 
+    Vim使用笔记
+    http://www.cnblogs.com/jiqingwu/archive/2012/06/14/vim_notes.html
+    
+
 -----------------------------------
 jie-zhang总结困扰过个人的操作极巧。
 -----------------------------------
@@ -160,3 +164,16 @@ jie-zhang总结困扰过个人的操作极巧。
     4)推出宏, 按下q
      
     5)回放宏"w"98次, 输入98@w即可.
+
+16. 设置只读
+    文件打开后，运行底行命令
+    :set ma 或者 :set modifiable
+    :set noma 或者 :set nomodifiable
+
+    vim -R file: 以只读的方式打开文件，但可以强制保存；
+    vim -M file: 以只读的方式打开文件，不可以强制保存；
+
+    参考：
+    http://www.cnblogs.com/jiqingwu/archive/2012/06/14/vim_notes.html
+
+  
