@@ -258,3 +258,9 @@ jie-zhang总结困扰过个人的操作极巧。
 
     参考：
     http://www.cnblogs.com/jiqingwu/archive/2012/06/14/vim_notes.html
+
+19. 显示正在编辑的文件名
+
+    在非编辑模式下先后按下：
+    1
+    ctrl + g
